@@ -1,3 +1,13 @@
+const firebaseConfig = {
+  apiKey: "AIzaSyBxTKRYEK5aHiJ2hTC5gicXsqoHoYcPtqg",
+  authDomain: "rock-paper-bf40c.firebaseapp.com",
+  projectId: "rock-paper-bf40c",
+  storageBucket: "rock-paper-bf40c.appspot.com",
+  messagingSenderId: "1030131558316",
+  appId: "1:1030131558316:web:83a6f7a7895f175eb8bc09"
+};
+firebase.initializeApp(firebaseConfig);
+let database = firebase.database();
 /** @type {HTMLInputElement} */
 let one = document.getElementById("join1");
 /** @type {HTMLInputElement} */
@@ -6,7 +16,6 @@ let two = document.getElementById("join2");
 let three = document.getElementById("join3");
 /** @type {HTMLInputElement} */
 let four = document.getElementById("join4");
-
 one.addEventListener("input", () => {
   if (one.value != "") {
     two.focus();
@@ -34,3 +43,4 @@ four.addEventListener("input", () => {
     three.focus();
   }
 });
+// one.addEventListener()

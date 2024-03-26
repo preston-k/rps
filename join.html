@@ -7,16 +7,19 @@
   <link rel="icon" type="image/x-icon" href="https://cdn.prestonkwei.com/personalwebsitefavicon.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anonymous+Pro">
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
   <h1>Join a Game</h1>
-  <p>Please enter a join code</p>
+  <!-- <p>Enter a join code:</p> -->
   <form id='jc'>
-    <input id='join1' class='joinc' type='text' placeholder='1' maxlength='1'></input>
-    <input id='join2' class='joinc' type='text' placeholder='2' maxlength='1'></input>
-    <input id='join3' class='joinc' type='text' placeholder='3' maxlength='1'></input>
-    <input id='join4' class='joinc' type='text' placeholder='4' maxlength='1'></input>
+    <input id='join1' class='joinc' type='text' placeholder='1' maxlength='1' autocomplete='off'></input>
+    <input id='join2' class='joinc' type='text' placeholder='2' maxlength='1' autocomplete='off'></input>
+    <input id='join3' class='joinc' type='text' placeholder='3' maxlength='1' autocomplete='off'></input>
+    <input id='join4' class='joinc' type='text' placeholder='4' maxlength='1' autocomplete='off'></input>
   </form>
   <p class='smallp'>Don't have a join code? Ask your opponent or <a href='/' id='href'>create a game</a>!</p>
   <script src='script.js'></script>
