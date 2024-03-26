@@ -8,6 +8,7 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 let database = firebase.database();
+
 /** @type {HTMLInputElement} */
 let one = document.getElementById("join1");
 /** @type {HTMLInputElement} */
@@ -43,4 +44,29 @@ four.addEventListener("input", () => {
     three.focus();
   }
 });
-// one.addEventListener()
+async function gameCheck(join) {
+  try {
+    const snapshot = await database.ref('game').once('value');
+    const gameData = snapshot.child(join).val();
+    return gameData;
+  } catch (error) {
+    console.log('ERROR:' + error.message);
+    return null;
+  }
+}
+four.addEventListener('input', () => {
+  let joincode = document.getElementById('join1').value + document.getElementById('join2').value + document.getElementById('join3').value + document.getElementById('join4').value;
+  gameCheck(joincode)
+})
+
+function onload() {
+  let id = new URLSearchParams(window.location.search).get('gid');
+  if (id.length == 4) {
+    console.log('URL ID DETECTED')
+    one.value = id.slice(0, 1)
+    two.value = id.slice(1, 2)
+    three.value = id.slice(2, 3)
+    four.value = id.slice(3, 4) 
+  }
+}
+onload()
