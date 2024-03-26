@@ -25,6 +25,8 @@ body {
   margin: 0;
   border-left: 0;
   /* border-bottom: 2px solid black; */
+  appearance: none;
+  -webkit-appearance: none;
 }
 .joinc:focus {
   outline: none;

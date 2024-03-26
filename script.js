@@ -45,10 +45,16 @@ four.addEventListener("input", () => {
   }
 });
 async function gameCheck(join) {
+  console.log('Game Check')
   try {
-    const snapshot = await database.ref('game').once('value');
+    const snapshot = await database.ref('games/' + join).once('value');
     const gameData = snapshot.child(join).val();
-    return gameData;
+    // return gameData;
+    if (gameData == null || gameData == '') {
+      alert('No Game Found')
+    } else {
+      console.log('Game Data')
+    }
   } catch (error) {
     console.log('ERROR:' + error.message);
     return null;
@@ -61,12 +67,14 @@ four.addEventListener('input', () => {
 
 function onload() {
   let id = new URLSearchParams(window.location.search).get('gid');
-  if (id.length == 4) {
-    console.log('URL ID DETECTED')
-    one.value = id.slice(0, 1)
-    two.value = id.slice(1, 2)
-    three.value = id.slice(2, 3)
-    four.value = id.slice(3, 4) 
+  if (id != null) {
+    if (id.length == 4) {
+      console.log('URL ID DETECTED')
+      one.value = id.slice(0, 1)
+      two.value = id.slice(1, 2)
+      three.value = id.slice(2, 3)
+      four.value = id.slice(3, 4) 
+    }
   }
 }
 onload()
